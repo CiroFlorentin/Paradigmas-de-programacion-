@@ -66,7 +66,7 @@ console.log(res1)
 const res2 = arr.every(e => e%2 ==! 0) //TRUE/FALSE si todos los elementos cumplen con la condicion 
 console.log(res2)
 
-const res3 = arr.map(e => e%2 ==! 0) //devuelve en booleano en array 
+const res3 = arr.map(e => e%2 ==! 0) //devuelve la copia del array en booleano  
 console.log(res3)
 
 const arr2 = [3,5,7,5,9,10,3,6,8,2];
