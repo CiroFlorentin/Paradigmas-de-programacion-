@@ -57,21 +57,21 @@ console.log("Valor de la suma: " + s);
 // - REDUCE
 
 const arr = [3,5,7,5,9];
-console.log(arr)
+console.log("array normal " + arr)
 
 const res1 = arr.some(e => e%2 === 0); //Necesita una funcion anonima
-console.log(res1)
+console.log("array con some " + res1)
 
 
 const res2 = arr.every(e => e%2 ==! 0) //TRUE/FALSE si todos los elementos cumplen con la condicion 
-console.log(res2)
+console.log("array con every " + res2)
 
-const res3 = arr.map(e => e%2 ==! 0) //devuelve la copia del array en booleano  
-console.log(res3)
+const res3 = arr.map(e => e*2) //devuelve una copia del array aplicando la funcion y modificando la original
+console.log("array con map "+  res3)
 
 const arr2 = [3,5,7,5,9,10,3,6,8,2];
 const res4 = arr2.filter(e => e%2 === 0) //devuelve los datos coincidentes 
-console.log(res4)
+console.log("array con filter "+ res4)
 
-const res5 = arr.reduce(e => e%2 ==! 0) 
-console.log(res5)
+const res5 = arr.reduce((e) => e*2) 
+console.log("array con reduce " + res5)
