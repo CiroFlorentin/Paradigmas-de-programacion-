@@ -20,9 +20,10 @@
   },
   "homepage": "https://github.com/CiroFlorentin/Paradigmas-de-programacion-#readme",
   "devDependencies": {
+    "nodemon": "^3.1.10",
     "standard": "^17.1.2"
   },
   "eslintConfig": {
-    "extends":"/node_modules/standard/eslintrc.json"
+    "extends": "/node_modules/standard/eslintrc.json"
   }
 }
