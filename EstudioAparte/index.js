@@ -16,3 +16,6 @@ console.log({ juegoBorrado, juegos });
 
 let juegoBorradoPos = juegos.splice(1, 2);
 console.log({ juegoBorradoPos, juegos });
+
+let metroidIndice = juegos.indexOf("Metroid");
+console.log({ metroidIndice });
