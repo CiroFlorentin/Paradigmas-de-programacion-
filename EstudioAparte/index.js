@@ -13,3 +13,6 @@ console.log({ nuevaLongitud2, juegos });
 
 let juegoBorrado = juegos.pop();
 console.log({ juegoBorrado, juegos });
+
+let juegoBorradoPos = juegos.splice(1, 2);
+console.log({ juegoBorradoPos, juegos });
