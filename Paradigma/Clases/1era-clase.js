@@ -70,5 +70,10 @@ const arr2 = [3, 5, 7, 5, 9, 10, 3, 6, 8, 2];
 const res4 = arr2.filter((e) => e % 2 === 0); //devuelve los datos coincidentes
 console.log("array con filter " + res4);
 
-const res5 = arr.reduce((e) => e * 2); //devuelve el resultado de la funcion aplicada a todos los elementos del array
-console.log("array con reduce " + res5);
+const arr3 = [1, 2, 3, 4];
+
+const initValue = 0;
+
+const suma = arr3.reduce((acc, curr) => acc + curr, initValue);
+
+console.log("array con reduce " + suma);
