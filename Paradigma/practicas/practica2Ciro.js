@@ -67,5 +67,13 @@ console.log("Ejercicio 6: " + resultado6);
 const texto =
   "En la educación, el docente propone un proyecto breve: con tecnología y datos, las estudiantes y los estudiantes analizan un problema real. El docente guía la práctica, revisan el código, miden resultados y discuten una evaluación formativa. El proyecto se reitera: más datos, más código, mejor aprendizaje. Así, en la comunidad educativa, el docente acompaña, los estudiantes participan y la tecnología potencia la práctica y la evaluación";
 
-const resultado7 = [...texto].reduce((acc, curr) => (acc += curr), 0);
-console.log("Ejercicio 7: " + resultado7.length);
+const resultado7 = [...texto].reduce(
+  (acc, curr) => {
+    curr === " "
+      ? (acc.cantidadEspacios += 1)
+      : (acc.cantidadPalabras = texto.split(" ").length);
+    return acc;
+  },
+  { cantidadEspacios: 0, cantidadPalabras: 0 }
+);
+console.log("Ejercicio 7: ", resultado7);
