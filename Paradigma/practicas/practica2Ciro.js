@@ -48,13 +48,13 @@ const resultado5 = listaNotas.reduce(
     curr.c === "A"
       ? ((acc.A.sum += curr.n), acc.A.count++)
       : ((acc.B.sum += curr.n), acc.B.count++);
+    acc.A.avg = acc.A.sum / acc.A.count;
+    acc.B.avg = acc.B.sum / acc.B.count;
     return acc;
   },
-  { A: { sum: 0, count: 0 }, B: { sum: 0, count: 0 } }
+  { A: { sum: 0, count: 0, avg: 0 }, B: { sum: 0, count: 0, avg: 0 } }
 );
-const A = resultado5.A.sum / resultado5.A.count;
-const B = resultado5.B.sum / resultado5.B.count;
-console.log("Ejercicio 5: ", { A, B });
+console.log("Ejercicio 5: ", resultado5.A.avg, resultado5.B.avg);
 
 // Ejercicio 6
 const dni = "20385978";
