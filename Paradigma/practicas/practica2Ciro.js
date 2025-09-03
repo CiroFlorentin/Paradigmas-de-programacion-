@@ -5,9 +5,9 @@ const resultado1 = nums.reduce((acc, curr) => acc + curr);
 console.log("Ejercicio 1: " + resultado1);
 
 // Ejercicio 2
-let esInpar = (x) => x % 2;
+
 const resultado2 = nums.reduce(
-  (acc, curr) => (esInpar(curr) ? acc + curr * curr : acc),
+  (acc, curr) => (curr % 2 ? acc + curr * curr : acc),
   0
 );
 console.log("Ejercicio 2: " + resultado2);
