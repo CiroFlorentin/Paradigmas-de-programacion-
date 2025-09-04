@@ -71,8 +71,9 @@ const resultado7 = [...texto].reduce(
     curr === " "
       ? (acc.cantidadEspacios += 1)
       : (acc.cantidadPalabras = texto.split(" ").length);
+    acc.total = acc.cantidadEspacios + acc.cantidadPalabras;
     return acc;
   },
-  { cantidadEspacios: 0, cantidadPalabras: 0 }
+  { cantidadEspacios: 0, cantidadPalabras: 0, total: 0 }
 );
 console.log("Ejercicio 7: ", resultado7);
