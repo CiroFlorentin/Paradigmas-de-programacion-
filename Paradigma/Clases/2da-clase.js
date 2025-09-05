@@ -78,7 +78,7 @@ const fns = [
 ];
 
 const resultado = fns.map(({ name, fn }) => {
-  return { name: name };
+  return { name: name, result: fn(5, 3) };
 });
 
 console.log(resultado);
