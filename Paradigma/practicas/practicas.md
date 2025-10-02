@@ -52,3 +52,95 @@ forma:
 [… texto]. Reduce( ------ ) ;
 Presta atención en los … aparecen antes de texto [… texto]. Esta expresión hace uso del operador spread
 sobre un string y lo convierte a un array de caracteres.
+
+## Práctica Primer Parcial
+
+- Actividades 1:
+
+1. Escriba una función que reciba por parámetro un nombre y retorne el producto que
+   coincida exactamente con ese nombre utilizando.
+
+2. Escriba una función que no reciba parámetros y retorne un booleano indicando si todos
+   los productos tienen precio mayor a 0
+
+3. Escriba una función que retorne el producto más caro, utilizando
+   obligatoriamente el método .reduce().
+
+4. Escriba una función que retorne la información combinada de producto y categoría,
+   con la siguiente estructura:
+
+[
+{
+"nombre": String,
+"precio": Number,
+"categoria": {
+"descripcion": String,
+"esImportada": Boolean
+}
+},
+{ ... }
+]
+
+5. Escriba una función que retorne el precio promedio de todos los productos
+
+- Actividad 2:
+
+1. ¿Existe ALGÚN préstamo con retraso mayor a 0?
+2. ¿Cuales?
+3. ¿Todos los libros poseen menos de 100 páginas?
+4. Escriba una función que retorne la información combinada de prestamos y libros,
+   con la siguiente estructura:
+
+[
+{
+libroId: 104,
+lector: 'Sofía',
+dias: 7,
+retraso: 0,
+libro: { titulo: 'La Isla de Hierro', genero: 'Aventura', paginas: 250 }
+},
+{....}
+]
+
+5. A partir de detalle, obtené un arreglo llamado seleccion con los préstamos de libros
+   cuyo género sea 'Aventura' o 'Ficcion' y cuyo préstamo sea de 5 días o más (dias ≥ 5).
+
+6. Calculá el TOTAL de páginas prestadas (contando un libro cada vez que se prestó).
+
+7. Hallá el MÍNIMO de días de préstamo registrado.
+
+8. Obten la cantida de ocurrencias de titulos que fueron prestados.
+
+- ACTIVIDAD 3:
+
+1.       Usar map y find para crear el arreglo combinado: Paquete por destino.
+
+2.       Buscar un paquete por ciudad, país o nombre.
+
+3.       Obtener viajes internacionales cuyo valor sea mayor a 400.000.
+
+4.       Existe algun paquete más barato que 380000.
+
+5.       Verificar si todos los viajes son Internacionales.
+
+6.       Calcular totales y promedios por país.
+
+7.        Calcule y retorne un objetoresumen a partir de paquetesDetallados con la siguiente forma:
+
+{
+
+totalPaquetes: Number,
+
+totalPrecio: Number,
+
+promedioPrecio: Number,
+
+totalInternacionales: Number,
+
+totalNacionales: Number,
+
+promedioInternacionales: Number, // 0 si no hay
+
+promedioNacionales: Number // 0 si no hay
+
+}
