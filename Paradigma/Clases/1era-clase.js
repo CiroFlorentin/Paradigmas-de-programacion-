@@ -11,7 +11,7 @@ console.log("Valor de la suma: " + s);
 
 */
 
-//Funcion anonima/lambda/flecha
+// Funcion anonima/lambda/flecha
 
 //const resultado = (a,b) => {return a + b};
 //const resultado = (a,b) => a + b;
