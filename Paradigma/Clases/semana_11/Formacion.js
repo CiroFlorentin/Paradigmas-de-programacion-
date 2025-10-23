@@ -28,6 +28,7 @@ class FormacionFerroviaria {
     );
     return vagonesConBaño.length;
   }
+
   mantenimiento() {
     this.vagones.forEach((vagon) => {
       if (vagon instanceof VagonPasajero) {
@@ -38,6 +39,7 @@ class FormacionFerroviaria {
       }
     });
   }
+
   equilibradaPasajeros() {
     const vagonesPasajeros = this.vagones.filter(
       (v) => v instanceof VagonPasajero
@@ -51,14 +53,24 @@ class FormacionFerroviaria {
     );
     return maxPasajeros - minPasajeros <= 20;
   }
+
   cantPasajerosTotal() {
     return this.vagones.reduce((total, vagon) => {
       if (vagon instanceof VagonPasajero || vagon instanceof VagonDormitorio) {
-        return total + vagon.cantPasajeros();
+        total = total + vagon.cantPasajeros();
       }
-
       return total;
     }, 0);
+  }
+  cantPopulares() {
+    return this.vagones.filter(
+      (v) =>
+        (v instanceof VagonPasajero || v instanceof VagonDormitorio) &&
+        v.popular
+    ).length;
+  }
+  esCarguero() {
+    return this.vagones.every((v) => v.cargaMax() > 1000);
   }
 }
 module.exports = FormacionFerroviaria;

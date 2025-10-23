@@ -39,10 +39,8 @@ primeraFormacion.agregarVagon(vagon4);
 console.log(
   'Antes del mantenimiento:',
   primeraFormacion.cantPasajerosTotal(),
-  primeraFormacion.vagones.filter(
-    (v) =>
-      (v instanceof VagonPasajero || v instanceof VagonDormitorio) && v.popular
-  ).length,
+  primeraFormacion.cantPopulares(),
+  primeraFormacion.esCarguero(),
   primeraFormacion.dispersionPeso(),
   primeraFormacion.cantBaños()
 );
@@ -53,10 +51,8 @@ primeraFormacion.mantenimiento();
 console.log(
   'Después del mantenimiento:',
   primeraFormacion.cantPasajerosTotal(),
-  primeraFormacion.vagones.filter(
-    (v) =>
-      (v instanceof VagonPasajero || v instanceof VagonDormitorio) && v.popular
-  ).length,
+  primeraFormacion.cantPopulares(),
+  primeraFormacion.esCarguero(),
   primeraFormacion.dispersionPeso(),
   primeraFormacion.cantBaños()
 );
@@ -81,10 +77,8 @@ segundaFormacion.agregarVagon(vagon6);
 console.log(
   'Segunda Formacion - Antes del mantenimiento:',
   segundaFormacion.cantPasajerosTotal(),
-  segundaFormacion.vagones.filter(
-    (v) =>
-      (v instanceof VagonPasajero || v instanceof VagonDormitorio) && v.popular
-  ).length,
+  segundaFormacion.cantPopulares(),
+  segundaFormacion.esCarguero(),
   segundaFormacion.dispersionPeso(),
   segundaFormacion.cantBaños()
 );
@@ -94,10 +88,8 @@ segundaFormacion.mantenimiento();
 console.log(
   'Segunda Formacion - Después del mantenimiento:',
   segundaFormacion.cantPasajerosTotal(),
-  segundaFormacion.vagones.filter(
-    (v) =>
-      (v instanceof VagonPasajero || v instanceof VagonDormitorio) && v.popular
-  ).length,
+  segundaFormacion.cantPopulares(),
+  segundaFormacion.esCarguero(),
   segundaFormacion.dispersionPeso(),
   segundaFormacion.cantBaños()
 );
