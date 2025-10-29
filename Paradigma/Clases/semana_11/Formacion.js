@@ -62,6 +62,7 @@ class FormacionFerroviaria {
       return total;
     }, 0);
   }
+  
   cantPopulares() {
     return this.vagones.filter(
       (v) =>
@@ -69,6 +70,7 @@ class FormacionFerroviaria {
         v.popular
     ).length;
   }
+
   esCarguero() {
     return this.vagones.every((v) => v.cargaMax() > 1000);
   }
