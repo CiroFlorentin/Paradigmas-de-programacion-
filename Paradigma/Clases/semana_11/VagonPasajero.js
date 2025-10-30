@@ -2,7 +2,9 @@ const Vagon = require('./Vagon.js');
 
 class VagonPasajeros extends Vagon {
   constructor(largo, ancho, ordenado, baño) {
-    super(largo, ancho);
+    super();
+    this.largo = largo;
+    this.ancho = ancho;
     this.ordenado = ordenado;
     this.baño = baño;
   }

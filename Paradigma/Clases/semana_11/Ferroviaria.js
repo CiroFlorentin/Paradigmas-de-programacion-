@@ -1,95 +1,26 @@
-const formacion = require('./Formacion.js');
+const Depositos = require('./Depositos');
+const Locomotora = require('./Locomotora');
 
-const VagonCarga = require('./VagonCarga.js');
-const VagonPasajero = require('./VagonPasajero.js');
-const VagonDormitorio = require('./VagonDormitorio.js');
-const VagonPasajeros = require('./VagonPasajero.js');
+const { formacion1, formacion2, formacion3 } = require('./Formaciones');
 
-// PrimeraFormacion
-const primeraFormacion = new formacion();
+const depositos = new Depositos();
 
-vagon1 = new VagonPasajero(10, 4, true, true);
-vagon2 = new VagonPasajero(7, 2, false, false);
-vagon3 = new VagonCarga(6800, 5);
-vagon4 = new VagonDormitorio(8, 3);
+depositos.agregarFormacion(formacion1);
+depositos.agregarFormacion(formacion2);
+depositos.agregarFormacion(formacion3);
 
-primeraFormacion.agregarVagon(vagon1);
-primeraFormacion.agregarVagon(vagon2);
-primeraFormacion.agregarVagon(vagon3);
-primeraFormacion.agregarVagon(vagon4);
+const locomotora1 = new Locomotora(6000, 40000, 1000);
+const locomotora2 = new Locomotora(3000, 22000, 7000);
+const locomotora3 = new Locomotora(2000, 25000, 5000);
 
-// Vagón 	cant. pasajeros 	peso máximo 	carga máxima 	tiene baño
-// 1 	        100 	        10300 	            300 	        sí
-// 2 	        41 	            6080 	            800 	        no
-// 3 	        0 	            6300 	            4800 	        no
-// 4 	        24 	            7120 	            1200 	        sí
-// Antes del mantenimiento
-// console.log(
-//   'Antes del mantenimiento:',
-//   primeraFormacion.vagones.map((vagon, index) => ({
-//     vagon: index + 1,
-//     cantPasajeros: vagon.cantPasajeros(),
-//     pesoMaximo: vagon.cantPeso(),
-//     cargaMaxima: vagon.cargaMax(),
-//     tieneBaño: vagon.baño ? 'sí' : 'no',
-//   }))
-// );
+depositos.agregarLocomotora(locomotora1);
+depositos.agregarLocomotora(locomotora2);
+depositos.agregarLocomotora(locomotora3);
 
-// Antes del mantenimiento
-console.log(
-  'Antes del mantenimiento:',
-  primeraFormacion.cantPasajerosTotal(),
-  primeraFormacion.cantPopulares(),
-  primeraFormacion.esCarguero(),
-  primeraFormacion.dispersionPeso(),
-  primeraFormacion.cantBaños()
-);
-
-primeraFormacion.mantenimiento();
-// Después del mantenimiento
-
-console.log(
-  'Después del mantenimiento:',
-  primeraFormacion.cantPasajerosTotal(),
-  primeraFormacion.cantPopulares(),
-  primeraFormacion.esCarguero(),
-  primeraFormacion.dispersionPeso(),
-  primeraFormacion.cantBaños()
-);
-//  	                    antes 	después
-// pasajeros 	            165 	180
-// vagones populares 	    1 	    2
-// es carguero 	            no 	    no
-// dispersión de pesos 	    4220 	3200
-// baños 	                2 	      2
-
-console.log('-----------------------');
-
-// SegundaFormacion
-const segundaFormacion = new formacion();
-vagon5 = new VagonCarga(8000, 1);
-vagon6 = new VagonDormitorio(15, 4);
-
-segundaFormacion.agregarVagon(vagon5);
-segundaFormacion.agregarVagon(vagon6);
-
-// Antes del mantenimiento
-console.log(
-  'Segunda Formacion - Antes del mantenimiento:',
-  segundaFormacion.cantPasajerosTotal(),
-  segundaFormacion.cantPopulares(),
-  segundaFormacion.esCarguero(),
-  segundaFormacion.dispersionPeso(),
-  segundaFormacion.cantBaños()
-);
-
-segundaFormacion.mantenimiento();
-// Después del mantenimiento
-console.log(
-  'Segunda Formacion - Después del mantenimiento:',
-  segundaFormacion.cantPasajerosTotal(),
-  segundaFormacion.cantPopulares(),
-  segundaFormacion.esCarguero(),
-  segundaFormacion.dispersionPeso(),
-  segundaFormacion.cantBaños()
-);
+console.log({
+  'Vagon mas pesado': depositos.vagonMasPesadoDeCadaFormacion(),
+  'Formacion compleja': depositos.formacionCompleja(),
+  'Unidades Antes': depositos.unidadesFormacion(),
+  'Mover locomotora': depositos.moverLocomotora(formacion1),
+  'Unidades Despues': depositos.unidadesFormacion(),
+});

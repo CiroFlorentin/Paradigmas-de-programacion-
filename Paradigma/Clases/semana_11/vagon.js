@@ -1,8 +1,5 @@
 class Vagon {
-  constructor(largo, ancho) {
-    this.largo = largo;
-    this.ancho = ancho;
-  }
+  constructor() {}
 }
 
 module.exports = Vagon;

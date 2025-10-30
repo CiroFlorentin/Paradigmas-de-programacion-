@@ -5,11 +5,58 @@ const VagonCarga = require('./VagonCarga.js');
 class FormacionFerroviaria {
   constructor() {
     this.vagones = [];
+    this.locomotora = [];
   }
 
   agregarVagon(vagon) {
     this.vagones.push(vagon);
   }
+
+  agregarLocomotora(locomotora) {
+    this.locomotora.push(locomotora);
+  }
+
+  //! LOCOMOTORAS
+
+  velocidadMaxLocomotora() {
+    return this.locomotora.reduce((min, locomotora) => {
+      return Math.min(min, locomotora.velocidadMax());
+    }, this.locomotora[0].velocidadMax());
+  }
+
+  esEficienteLocomotora() {
+    return this.locomotora.every((l) => l.eficiente());
+  }
+  pesoMax() {
+    let pesoVagon = this.vagones.reduce((pesoVagon, vagon) => {
+      return pesoVagon + vagon.cantPeso();
+    }, 0);
+    let pesoLocomotora = this.locomotora.reduce(
+      (pesoLocomotora, locomotora) => {
+        return pesoLocomotora + locomotora.peso;
+      },
+      0
+    );
+    return pesoVagon + pesoLocomotora;
+  }
+
+  arrastreMax() {
+    let arrastre = this.locomotora.reduce((arrastre, locomotora) => {
+      return arrastre + locomotora.arrastreMax;
+    }, 0);
+    return arrastre;
+  }
+
+  puedeMoverse() {
+    return this.arrastreMax() >= this.pesoMax();
+  }
+
+  kilosEmpuje() {
+    if (this.puedeMoverse()) return 0;
+    return this.pesoMax() - this.arrastreMax();
+  }
+
+  //! VAGONES
 
   dispersionPeso() {
     if (this.vagones.length === 0) return 0;
@@ -41,17 +88,17 @@ class FormacionFerroviaria {
   }
 
   equilibradaPasajeros() {
-    const vagonesPasajeros = this.vagones.filter(
-      (v) => v instanceof VagonPasajero
-    );
-    if (vagonesPasajeros.length === 0) return 0;
-    const maxPasajeros = Math.max(
-      ...vagonesPasajeros.map((v) => v.cantPasajeros())
-    );
-    const minPasajeros = Math.min(
-      ...vagonesPasajeros.map((v) => v.cantPasajeros())
-    );
-    return maxPasajeros - minPasajeros <= 20;
+    const umbral = 20;
+
+    const cantidad = this.vagones
+      .map((v) => v.cantPasajeros())
+      .filter((v) => v > 0);
+    const max = Math.max(...cantidad);
+    const min = Math.min(...cantidad);
+
+    if (cantidad.length < 2) return true;
+
+    return max - min <= umbral;
   }
 
   cantPasajerosTotal() {
@@ -62,7 +109,7 @@ class FormacionFerroviaria {
       return total;
     }, 0);
   }
-  
+
   cantPopulares() {
     return this.vagones.filter(
       (v) =>
@@ -73,6 +120,12 @@ class FormacionFerroviaria {
 
   esCarguero() {
     return this.vagones.every((v) => v.cargaMax() > 1000);
+  }
+
+  vagonMasPesado() {
+    return this.vagones.reduce((max, vagon) => {
+      return Math.max(max, vagon.cantPeso());
+    }, 0);
   }
 }
 module.exports = FormacionFerroviaria;
