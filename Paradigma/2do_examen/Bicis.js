@@ -6,7 +6,9 @@ class Bici {
     this.accesorios = [];
   }
   agregarAccesorio(accesorio) {
-    this.accesorios.push(accesorio);
+    for (let i = 0; i < accesorio.length; i++) {
+      this.accesorios.push(accesorio[i]);
+    }
   }
   calcularAltura() {
     return this.rodado * 2.5 + 15;

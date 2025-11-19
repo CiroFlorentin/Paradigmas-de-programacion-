@@ -6,7 +6,7 @@ describe('Bici', () => {
     const bike = new Bici(28, 150, 'Olmo');
     const farolito = new Farolito();
 
-    bike.agregarAccesorio(farolito);
+    bike.agregarAccesorio([farolito]);
 
     expect(bike.calcularAltura()).toBe(85);
     expect(bike.calcularVelocidadCrucero()).toBe(34);
@@ -22,9 +22,8 @@ describe('Bici', () => {
     const canasto = new Canasto(8);
     const morral = new Morral(21, true);
 
-    bike.agregarAccesorio(farolito);
-    bike.agregarAccesorio(canasto);
-    bike.agregarAccesorio(morral);
+    bike.agregarAccesorio([farolito, canasto, morral]);
+    console.log(bike.accesorios);
 
     expect(bike.calcularAltura()).toBe(80);
     expect(bike.calcularVelocidadCrucero()).toBe(28);
@@ -38,7 +37,7 @@ describe('Bici', () => {
     const bike = new Bici(20, 90, 'Legnano');
     const morral = new Morral(6, false);
 
-    bike.agregarAccesorio(morral);
+    bike.agregarAccesorio([morral]);
 
     expect(bike.calcularAltura()).toBe(65);
     expect(bike.calcularVelocidadCrucero()).toBe(22);
