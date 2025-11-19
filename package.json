@@ -98,8 +98,8 @@
     "nodemon": "^3.1.10"
   },
   "scripts": {
-    "dev": "nodemon  Paradigma/Clases/CentroDeKinesiologia/CentroKine.js",
-    "start": "node  Paradigma/Clases/CentroDeKinesiologia/CentroKine.js",
+    "dev": "nodemon  Paradigma/2do_examen/Bicis.js",
+    "start": "node  Paradigma/2do_examen/Bicis.js",
     "lint": "eslint .",
     "test": "jest --watch"
   },
